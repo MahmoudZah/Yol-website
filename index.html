@@ -8,6 +8,56 @@
     <link rel="stylesheet" href="assets/css/bootstrap.min.css" />
     <link rel="stylesheet" href="assets/css/all.min.css" />
     <link rel="stylesheet" href="assets/css/style.css" />
+    <!-- Include Owl Carousel CSS -->
+<link rel="stylesheet" href="assets/css/owl.carousel.min.css" />
+<link rel="stylesheet" href="assets/css/owl.theme.default.min.css" />
+
+<!-- Include jQuery (required for Owl Carousel) -->
+<script src="assets/js/jquery-3.6.0.min.js"></script>
+
+<!-- Include Owl Carousel JS -->
+<script src="assets/js/owl.carousel.min.js"></script>
+<style>
+  /* Style the owl carousel navigation arrows */
+  .owl-nav button.owl-prev,
+  .owl-nav button.owl-next {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-75%);
+      color: #FFA632 !important; /* Dark arrow color */
+      font-size: 3rem !important; /* Size of the arrow */
+      z-index: 10;
+  }
+
+  .owl-nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 100%;
+    visibility: hidden;
+}
+.owl-next, .owl-prev {
+    position: relative;
+    font-size: 3rem!important;
+    visibility: visible;
+}
+.owl-prev {
+    right: 100%}
+.owl-next {
+    left: 100%}
+  
+  
+  /* Optional: Hide default outline when focused */
+  .owl-nav button.owl-prev:focus,
+  .owl-nav button.owl-next:focus {
+      outline: none;
+  }
+  .owl-carousel .owl-item img {
+    border-radius: 35px;
+    height: 300px;
+  }
+  </style>
+  
   </head>
   <body>
     <!--==================== HEADER ====================-->
@@ -24,7 +74,7 @@
             </li>
 
             <li class="nav__item">
-              <a href="#visit" class="nav__link">Contact Us</a>
+              <a href="contact.html" class="nav__link">Contact Us</a>
             </li>
           </ul>
 
@@ -228,41 +278,77 @@
       </section>
 
       <!--==== our clients ====-->
-      <section class="section ourClients position-relative "> 
+      <section class="section ourClients position-relative"> 
         <div class="container">
-          
-          <div class="ourClients_card--container">
-            <div class="ourClients_card position-relative">
-              <div class="ourClients__header position-absolute">
-                <h2 class="text-center monster__font">OUR CLIENTS</h2>
+            <div class="ourClients_card--container">
+                <div class="ourClients_card position-relative">
+                    <div class="ourClients__header position-absolute">
+                        <h2 class="text-center monster__font">OUR CLIENTS</h2>
+                    </div>
+                    <div class="owl-carousel owl-theme">
+                        <div class="item">
+                            <div class="d-flex justify-content-center align-items-center">
+                                <div class="ourClients_img">
+                                    <img src="assets/imgs/Asset 22.png" alt="">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <div class="d-flex justify-content-center align-items-center">
+                                <div class="ourClients_img">
+                                    <img src="assets/imgs/Asset 23.png" alt="">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <div class="d-flex justify-content-center align-items-center">
+                                <div class="ourClients_img">
+                                    <img src="assets/imgs/Asset 24.png" alt="">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="item">
+                          <div class="d-flex justify-content-center align-items-center">
+                              <div class="ourClients_img">
+                                  <img src="assets/imgs/narratives.webp" alt="">
+                              </div>
+                          </div>
+                      </div>
+                      <div class="item">
+                        <div class="d-flex justify-content-center align-items-center">
+                            <div class="ourClients_img">
+                                <img src="assets/imgs/sip.jpg" alt="">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item">
+                      <div class="d-flex justify-content-center align-items-center">
+                          <div class="ourClients_img">
+                              <img src="assets/imgs/saac.jpg" alt="">
+                          </div>
+                      </div>
+                  </div>
+                  <div class="item">
+                    <div class="d-flex justify-content-center align-items-center">
+                        <div class="ourClients_img">
+                            <img src="assets/imgs/hadr moot.jpg" alt="">
+                        </div>
+                    </div>
+                </div>
+                <div class="item">
+                  <div class="d-flex justify-content-center align-items-center">
+                      <div class="ourClients_img">
+                          <img src="assets/imgs/partners.png" alt="">
+                      </div>
+                  </div>
               </div>
-              <div class="row">
-                <div class="col-12 col-md-6 col-lg-4 mt-3 mt-md-0">
-                  <div class="d-flex justify-content-center align-items-center">
-                    <div class="ourClients_img">
-                      <img src="assets/imgs/Asset 22.png" alt="">
                     </div>
-                  </div>
                 </div>
-                <div class="col-12 col-md-6 col-lg-4 mt-3 mt-md-0">
-                  <div class="d-flex justify-content-center align-items-center">
-                    <div class="ourClients_img">
-                      <img src="assets/imgs/Asset 23.png" alt="">
-                    </div>
-                  </div>
-                </div>
-                <div class="col-12 col-md-6 mx-md-auto col-lg-4 mt-3 mt-lg-0">
-                  <div class="d-flex justify-content-center align-items-center">
-                    <div class="ourClients_img">
-                      <img src="assets/imgs/Asset 24.png" alt="">
-                    </div>
-                  </div>
-                </div>
-              </div>
             </div>
-          </div>
         </div>
-      </section>
+    </section>
+    
+    
     </main>
 
     <!--==================== Footer ====================-->
@@ -280,7 +366,7 @@
               </li>
   
               <li class="footer__item">
-                <a href="#visit" class="footer__link">Contact Us</a>
+                <a href="contact.html" class="footer__link">Contact Us</a>
               </li>
             </ul>
             <ul class="m-0 list-unstyled d-flex mt-3">
@@ -302,8 +388,8 @@
               </li>
             </ul>
           </div>
-          <div class="col-md-2"></div>
-          <div class="col-12 col-md-4 mt-3 mt-md-0">
+          <div class="col-2 d-md-none d-lg-block"></div>
+          <div class="col-12 col-md-6 col-lg-4 mt-3 mt-md-0">
             <div class="ms-md-auto">
               <div class="custom-search ms-md-auto">
                 <input type="email" class="custom-search-input text-white" placeholder="Email address ....">
@@ -321,5 +407,29 @@
     <script src="assets/js/bootstrap.bundle.min.js"></script>
     <script src="assets/js/all.min.js"></script>
     <script src="assets/js/script.js"></script>
+    <script>
+      $(document).ready(function(){
+          $('.owl-carousel').owlCarousel({
+              loop: true,
+              margin: 20,
+              nav: true,
+              dots: false,
+              navText: ['‹', '›'],
+              responsive: {
+                  0: {
+                      items: 1
+                  },
+                  768: {
+                      items: 2
+                  },
+                  1000: {
+                      items: 3
+                  }
+              }
+          });
+      });
+      </script>
+      
+      
   </body>
 </html>
