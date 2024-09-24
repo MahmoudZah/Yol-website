@@ -41,7 +41,7 @@ formEl.addEventListener('submit', async function(event) {
         text: 'Your Message sent successfully, you will be directed to home page',
       });
       setTimeout(() => {
-        window.location.href = "file:///C:/Users/Ahmed%20Morsy/Desktop/Web%20Projects/new%20yol/website/Yol-website/index.html";
+        window.location.href = "https://prelaunch.yol-eg.com/";
       }, 5000);
     } else {
       const result = await response.json();
