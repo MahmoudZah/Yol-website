@@ -22,13 +22,18 @@ body {
   background-color: black;
   font-family: "NWG"
 }
-
+.myriad__font{
+  font-family: "Myriad", sans-serif;
+}
 .nwg__font {
   font-family: "NWG", sans-serif;
 }
 
 .monster__font {
   font-family: "Monster", sans-serif;
+}
+.alert-danger{
+  background-color: #be2228 !important;
 }
 
 body {
