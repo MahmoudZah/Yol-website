@@ -27,69 +27,64 @@ const linkAction = ()=>{
 
 navLink.forEach(n => n.addEventListener('click', linkAction))
 
-/*=============== sending data to server ===============*/
+const subscribe = document.getElementById('subscribe');
+const subscribe_block = document.getElementById('subscribe-block');
 
-// contact us 
+subscribe.onclick = async ()=>{
+  const email = document.getElementById('subscribe-email').value;
 
-const formEl = document.querySelector('#contact_form');
+  const existingErrorDiv = document.querySelector('.alert.alert-danger');
+  if (existingErrorDiv) {
+    existingErrorDiv.remove();
+  }
+  
+  subscribe.innerHTML = `<span class="spinner-border spinner-border-sm text-black" role="status" aria-hidden="true"></span> Loading...`;
+  
+  try {
+    const response = await fetch('https://yol-eg.com/backend/api/subscribe', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({email: email}),
+    });
 
-  formEl.addEventListener('submit', async function(event) {
-    event.preventDefault();
-    event.stopPropagation(); 
+    subscribe.innerHTML = `SUBSCRIBE <i class="fa-solid fa-right-long fs-6"></i>`;
 
-    const existingErrorDiv = document.querySelector('.alert.alert-danger');
-    if (existingErrorDiv) {
-      existingErrorDiv.remove();
-    }
-
-    const nameValue = document.getElementById('name').value;
-    const emailValue = document.getElementById('email').value;
-    const messageValue = document.getElementById('message').value;
-
-    const data = {
-      email: emailValue,
-      name: nameValue,
-      message: messageValue
-    };
-
-    try {
-      const response = await fetch('https://yol-eg.com/backend/api/contact', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(data),
+    if(response.ok){
+      Swal.fire({
+        icon: 'success',
+        title: 'Success',
+        text: 'Your email has been added successfully, you will be directed to home page',
       });
+      setTimeout(() => {
+        window.location.href = "file:///C:/Users/Ahmed%20Morsy/Desktop/Web%20Projects/new%20yol/website/Yol-website/index.html";
+      }, 5000);
+    } else {
+      const result = await response.json();
+      
+      if (result.errors) {
+        const errorDiv = document.createElement('div');
+        errorDiv.className = 'alert alert-danger border-0';
+        errorDiv.setAttribute('role', 'alert');
 
-      if (response.ok) {
+        const errorList = document.createElement('ul');
+        errorList.classList = 'list-unstyled m-0 ps-1 myriad__font'
 
-        formEl.reset();
-        alert("Message sent successfully!");
-      } else {
-        const result = await response.json();
+        Object.keys(result.errors).forEach((field) => {
+          const listItem = document.createElement('li');
+          listItem.className = 'ps-0 text-white';
+          listItem.textContent = result.errors[field][0];
+          errorList.appendChild(listItem);
+        });
 
-        if (result.errors) {
+        errorDiv.appendChild(errorList);
 
-          const errorDiv = document.createElement('div');
-          errorDiv.className = 'alert alert-danger border-0';
-          errorDiv.setAttribute('role', 'alert');
-
-          const errorList = document.createElement('ul');
-          errorList.classList = 'list-unstyled m-0 ps-1 myriad__font'
-
-          Object.keys(result.errors).forEach((field) => {
-            const listItem = document.createElement('li');
-            listItem.className = 'ps-0 text-white';
-            listItem.textContent = result.errors[field][0];
-            errorList.appendChild(listItem);
-          });
-
-          errorDiv.appendChild(errorList);
-
-          formEl.parentNode.insertBefore(errorDiv, formEl);
-        }
+        subscribe_block.prepend(errorDiv);
       }
-    } catch (error) {
-      alert("There was an error sending the message: " + error.message);
     }
-  });
+
+  } catch (error) {
+    return;
+  }
+}

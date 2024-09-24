@@ -435,9 +435,20 @@ a {
   line-height: 1;
   box-sizing: border-box;
   outline: none;
-  background-color: transparent;
-  color: white;
+  background-color: transparent !important;
+  color: white !important;
   margin-bottom: 15px;
+}
+#contact_form input:-webkit-autofill, #contact_form textarea:-webkit-autofill {
+  -webkit-text-fill-color: white !important;
+  transition: background-color 5000s ease-in-out 0s;
+}
+
+#contact_form input:-webkit-autofill:hover, #contact_form textarea:-webkit-autofill:hover,
+#contact_form input:-webkit-autofill:focus, #contact_form textarea:-webkit-autofill:focus,
+#contact_form input:-webkit-autofill:active, #contact_form textarea:-webkit-autofill:active {
+  -webkit-text-fill-color: white !important;
+  transition: background-color 5000s ease-in-out 0s;
 }
 #contact_form input::placeholder {
   color: white;
@@ -465,8 +476,8 @@ textarea {
   top: 0;
   background-color: #fafafa;
 }
-.see_more.light:hover .top .label {
-  color: #181818;
+.see_more.light:hover .top .label, .see_more.light:hover .spinner-border {
+  color: #181818 !important;
 }
 .see_more.light .bottom {
   position: absolute;
@@ -549,4 +560,10 @@ textarea {
   position: absolute;
   right: -35px;
   top: 11px;
+}
+.swal2-title {
+  color:#181818 !important;
+}
+.swal2-confirm {
+  background-color: #be2228 !important;
 }
